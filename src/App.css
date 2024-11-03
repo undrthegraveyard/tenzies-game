@@ -1,0 +1,160 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Variables */
+:root {
+ --primary-color: #0B2434;
+ --secondary-color: #F5F5F5;
+
+--primary-ff-color:#2B283A;
+--secondary-ff-color:#4A4E74;
+--tertiary-ff-color:#59E391;
+
+--button-color: #5035FF;
+
+/* Typography */
+--ff-primary: 'Karla', sans-serif;
+--ff-secondary: 'Inter', sans-serif;
+
+/* Font Sizes */
+--fs-heading: 1.6rem;
+--fs-body: 0.81919rem;
+--fs-number-keys: 0.81919rem;
+--fs-button:1.024rem;
+
+/* Font Weights */
+--fw-bold: 700;
+--fw-regular: 400;
+
+/* letter spacing */
+--ls-heading: -0.048rem;
+--ls-body: -0.024rem;
+}
+
+/* Custom Properties */
+
+body{
+  background-color: var(--primary-color);
+  
+  display: grid;
+  place-content: center;
+  padding: 1.88rem 1.25rem;
+}
+
+main{
+  background-color: var(--secondary-color);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  padding: 2.08rem 2.16rem;
+  border-radius: 0.63rem;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  
+  gap: 0.48rem;
+  width: 233px;
+}
+
+header > h1{
+  font-size: var(--fs-heading);
+  letter-spacing: var(--ls-heading);
+  color: var(--primary-ff-color);
+  font-weight: var(--fw-bold);
+  font-family: var(--ff-primary);
+}
+
+header > p{
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-body);
+  letter-spacing: var(--ls-body);
+  color: var(--secondary-ff-color);
+  font-weight: var(--fw-regular);
+  text-align: center;
+}
+
+section{
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 1.25rem;
+
+  margin: 1.45rem 0;
+}
+
+.die{
+  background-color: #FFF;
+  width: 36px;
+  height: 36px;
+  border-radius: 0.25rem;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.die-num{
+  font-size: var(--fs-number-keys);
+  font-weight: var(--fw-bold);
+  font-family: var(--ff-primary);
+  color: var(--primary-ff-color);
+}
+
+button{
+  background-color: var(--button-color);
+  padding: 0.36rem 1.32rem;
+  border-radius: 0.25rem;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  cursor: pointer;
+}
+
+span{
+  font-family: var(--ff-primary);
+  font-size: var(--fs-button);
+  color: #FFF;
+  font-weight: var(--fw-bold);
+}

@@ -2,7 +2,7 @@
   "name": "tenzies-game",
   "version": "1.0.0",
   "description": "A game of dice built with React",
-  "main": "index.js",
+  "main": "main.js",
   "babel": {
     "presets": [
       "@babel/preset-env", 

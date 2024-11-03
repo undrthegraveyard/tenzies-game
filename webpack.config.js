@@ -6,12 +6,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 // Export the webpack configuration object
 module.exports = {
     // Entry point of the app, where webpack starts bundling
-    entry: './app/index.js',
+    entry: './src/main.js',
     
     // Configure how and where webpack will output the bundles
     output: {
         // Name of the output bundle file
-        filename: 'index_bundle.js',
+        filename: 'main_bundle.js',
         // Absolute path where bundles will be output
         // __dirname is the current directory, 'dist' is the target folder
         path: path.resolve(__dirname, 'dist')
@@ -39,9 +39,9 @@ module.exports = {
     // Array of plugins to extend webpack's capabilities
     plugins : [
         // Creates an HTML file with the correct bundles injected
-        // Uses the template from app/index.html
+        // Uses the template from src/index.html
         new HtmlWebpackPlugin ({
-          template : 'app/index.html'
+          template : 'src/index.html'
       })
   ]
 }
