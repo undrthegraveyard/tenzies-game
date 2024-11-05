@@ -50,10 +50,10 @@ table {
 --ff-secondary: 'Inter', sans-serif;
 
 /* Font Sizes */
---fs-heading: 1.6rem;
---fs-body: 0.81919rem;
---fs-number-keys: 0.81919rem;
---fs-button:1.024rem;
+--fs-heading: 2rem;
+--fs-body: 1rem;
+--fs-number-keys: 1.2rem;
+--fs-button:1rem;
 
 /* Font Weights */
 --fw-bold: 700;
@@ -70,8 +70,9 @@ body{
   background-color: var(--primary-color);
   
   display: grid;
-  place-content: center;
-  padding: 1.88rem 1.25rem;
+  place-items: center;
+ 
+  padding: 1.25rem;
 }
 
 main{
@@ -80,9 +81,11 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 
-  width: 100%;
-  padding: 2.08rem 2.16rem;
+  width: min(100%, 380px);
+  
+  padding: 2rem;
   border-radius: 0.63rem;
 }
 
@@ -91,9 +94,7 @@ header{
   flex-direction: column;
   align-items: center;
 
-  
   gap: 0.48rem;
-  width: 233px;
 }
 
 header > h1{
@@ -115,10 +116,10 @@ header > p{
 
 section{
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.25rem;
 
-  margin: 1.45rem 0;
+  margin: 1.5rem 0;
 }
 
 .die{
@@ -142,12 +143,12 @@ section{
 
 button{
   background-color: var(--button-color);
-  padding: 0.36rem 1.32rem;
+  padding: 0.6rem 1.6rem;
   border-radius: 0.25rem;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 
-  width: 100%;
-  max-width: 100px;
+  max-width: 100%;
+ 
   height: auto;
   cursor: pointer;
 }
@@ -158,3 +159,5 @@ span{
   color: #FFF;
   font-weight: var(--fw-bold);
 }
+
+
