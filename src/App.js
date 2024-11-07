@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import useWindowSize from 'react-use/lib/useWindowSize'
 import './App.css';
 import Header from './components/Header';
 import Die from './components/Die';
 import Button from './components/Button';
 import { nanoid } from 'nanoid';
+import Confetti from 'react-confetti'
 
 export default function App() {
 
   const [dice, setDice] = useState(generateRandomDiceNumbers);
   const [tenzies, setTenzies] = useState(false)
+
+  const {width, height} = useWindowSize()
 
   //initializing a useEffect with the dice dependency to check if the user has satisfied all conditions for the game to declare them a winner or not 
   useEffect(() => {
@@ -78,6 +82,10 @@ export default function App() {
 
   return(
     <main>
+      {tenzies ? <Confetti 
+        width={width}
+        height={height}
+      /> : ""}
       <Header />
       <section className='dice-container'>
           {dieElements}
