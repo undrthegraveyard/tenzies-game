@@ -1,7 +1,10 @@
 import React from 'react';
 
-export default function Button(){
+export default function Button(props){
+  
   return(
-    <button><span>Reset Game</span></button>
+    <button onClick= { props.rollDice }>
+      <span>{props.tenzies ? "Play Again" : "Roll"}</span>
+    </button>
   );
 }
