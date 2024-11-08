@@ -9,21 +9,28 @@ import Confetti from 'react-confetti'
 
 export default function App() {
 
-  const [dice, setDice] = useState(generateRandomDiceNumbers);
-  const [tenzies, setTenzies] = useState(false)
-
+  //initialising state to have info about the game
+  const [game, setGame] = useState({
+    dice: generateRandomDiceNumbers(),
+    tenzies: false,
+    rolls: 0
+  })
+  //initializing variables to get the width and height of the window size 
   const {width, height} = useWindowSize()
 
   //initializing a useEffect with the dice dependency to check if the user has satisfied all conditions for the game to declare them a winner or not 
   useEffect(() => {
-    const allHeld = dice.every(die => die.isHeld)
-    const allValues = dice.every(die => die.value === dice[0].value)
+    const allHeld = game.dice.every(die => die.isHeld)
+    const allValues = game.dice.every(die => die.value === game.dice[0].value)
     
     if(allHeld && allValues){
-      setTenzies(true)
+      setGame(prevGame => ({
+        ...prevGame,
+        tenzies: true
+      }))
     }
     
-  }, [dice])
+  }, [game.dice])
 
   //function to create a new die
   function generateNewDie() {
@@ -45,7 +52,7 @@ export default function App() {
   }
   
   //initializing a custom element dieElements to map over each element in the dice state 
-  const dieElements = dice.map(die => 
+  const dieElements = game.dice.map(die => 
     (<Die 
       //passing the each item(die) in the array as the value to every die component being rendered
       value={die.value}
@@ -58,31 +65,40 @@ export default function App() {
   
   // initializing a function rollDice to generate a new array of numbers, and then updating the state
   function rollDice() {
-    if(tenzies) {
-      setDice(generateRandomDiceNumbers())
-      setTenzies(false)
+    if(game.tenzies) {
+      setGame(prevState => ({
+        ...prevState,
+        dice: generateRandomDiceNumbers(),
+        tenzies: false
+      }))
     }
     else {
-      setDice(prevState => prevState.map(die => {
-        return die.isHeld === true ? die : generateNewDie()
-      }));
+      setGame(prevSate => ({
+        ...prevSate,
+        dice: prevSate.dice.map(die => {
+          return die.isHeld ? die : generateNewDie()
+        })
+      }))
     }
   }
   
   //holdDie is a function to change the isHeld property in the state of that particular die component which is being clicked
   function holdDie(id) {
-    setDice(prevSate => prevSate.map(die => {
-      if(die.key === id){
-        return {...die, isHeld : !die.isHeld}
-      } else {
-        return die
-      }
+    setGame(prevSate => ({
+      ...prevSate,
+      dice: prevSate.dice.map(die => {
+        if(die.key === id){
+          return {...die, isHeld: !die.isHeld}
+        }else {
+          return die
+        }
+      })
     }))
   }
 
   return(
     <main>
-      {tenzies ? <Confetti 
+      {game.tenzies ? <Confetti 
         width={width}
         height={height}
       /> : ""}
@@ -92,7 +108,7 @@ export default function App() {
       </section>
       <Button 
         rollDice={rollDice}
-        tenzies={tenzies}
+        tenzies={game.tenzies}
       />
     </main>
   );
