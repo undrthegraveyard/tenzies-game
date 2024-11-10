@@ -67,7 +67,7 @@ table {
 /* Custom Properties */
 
 body{
-  background-color: var(--primary-color);
+  background-color: #E6E4E4;
   
   display: grid;
   place-items: center;
@@ -125,7 +125,7 @@ section{
   width: 42px;
   height: 42px;
   border-radius: 0.25rem;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,15 +159,14 @@ span{
 }
 
 .dieFace{
-  background-color: #FFF;
   width: 46px;
   height: 44px;
   border-radius: 0.25rem;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   cursor: pointer;
-  padding: 4px;
+  padding: 5px;
   gap: 4px;
 }
 
@@ -188,3 +187,25 @@ span{
 .dot-8 { grid-area: 3 / 2; }  /* bottom-center */
 .dot-9 { grid-area: 3 / 3; }  /* bottom-right */
 
+.color-toggle-container{
+  display: flex;
+  gap: 12px;
+  margin: 0 0 1rem 0;
+}
+
+.color-mode{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 99%;
+  cursor: pointer;
+}
+.color-mode:active,
+.color-mode:hover {
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.25);
+}
+.purple{
+  background-color: #C7B9FF;
+}
+.green {
+  background-color: #59E391;
+}

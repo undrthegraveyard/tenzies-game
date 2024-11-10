@@ -2,7 +2,7 @@ import React from 'react'
 import '../App.css'
 import { nanoid } from 'nanoid'
 
-export default function DieFaceOne(props) {
+export default function DieFace(props) {
   
   const dotsPosition = {
     1: [5],

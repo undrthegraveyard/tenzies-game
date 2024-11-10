@@ -6,6 +6,8 @@ import Die from './components/Die';
 import Button from './components/Button';
 import { nanoid } from 'nanoid';
 import Confetti from 'react-confetti'
+import Color from './components/Color'
+import { COLOR_CONSTANTS } from './constants/colorConstant';
 
 export default function App() {
 
@@ -13,8 +15,13 @@ export default function App() {
   const [game, setGame] = useState({
     dice: generateRandomDiceNumbers(),
     tenzies: false,
-    rolls: 0
+    rolls: 0,
+    mode: COLOR_CONSTANTS
   })
+
+  //initializing state to toggle the color of the game 
+  const[color, setColor] = useState(0)
+
   //initializing variables to get the width and height of the window size 
   const {width, height} = useWindowSize()
 
@@ -60,6 +67,8 @@ export default function App() {
       id={die.key}
       isHeld={die.isHeld}
       holdDie={holdDie}
+      mode={game.mode}
+      color={color}
       />
      ))
   
@@ -97,19 +106,30 @@ export default function App() {
   }
 
   return(
+    <>
     <main>
+    <Color 
+    mode={game.mode}
+    setColor={setColor}
+    />
       {game.tenzies ? <Confetti 
         width={width}
         height={height}
       /> : ""}
-      <Header />
+      <Header 
+        mode={game.mode}
+        color={color}
+      />
       <section className='dice-container'>
           {dieElements}
       </section>
       <Button 
         rollDice={rollDice}
         tenzies={game.tenzies}
+        mode={game.mode}
+        color={color}
       />
     </main>
+    </>
   );
 }
