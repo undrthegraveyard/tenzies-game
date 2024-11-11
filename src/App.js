@@ -8,6 +8,7 @@ import { nanoid } from 'nanoid';
 import Confetti from 'react-confetti'
 import Color from './components/Color'
 import { COLOR_CONSTANTS } from './constants/colorConstant';
+import Timer from './components/Timer'
 
 export default function App() {
 
@@ -15,7 +16,6 @@ export default function App() {
   const [game, setGame] = useState({
     dice: generateRandomDiceNumbers(),
     tenzies: false,
-    rolls: 0,
     mode: COLOR_CONSTANTS
   })
 
@@ -129,6 +129,7 @@ export default function App() {
         mode={game.mode}
         color={color}
       />
+      <Timer />
     </main>
     </>
   );
